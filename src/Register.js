@@ -1,200 +1,160 @@
-import React,{useState} from "react";
-import axios from "axios";
-import {Link} from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-function Register(){
+function Register() {
 
-const [name,setName]=useState("");
-const [email,setEmail]=useState("");
-const [password,setPassword]=useState("");
+const navigate = useNavigate();
 
-async function register(){
+const [user, setUser] = useState({
+name: "",
+email: "",
+password: ""
+});
 
-if(!name || !email || !password){
-alert("Fill all fields");
+const [showPassword, setShowPassword] = useState(false);
+
+const handleChange = (e) => {
+setUser({
+...user,
+[e.target.name]: e.target.value
+});
+};
+
+const handleRegister = (e) => {
+e.preventDefault();
+
+if (!user.name || !user.email || !user.password) {
+alert("Please fill all fields");
 return;
 }
 
-try{
-
-await axios.post(
-"http://localhost:5000/register",
-{
-name,
-email,
-password
-}
+localStorage.setItem(
+"registeredUser",
+JSON.stringify(user)
 );
 
-alert("Registration Successful");
+alert("Registration Successful!");
+navigate("/login");
+};
 
-window.location="/login";
+const inputStyle = {
+width: "100%",
+padding: "12px",
+marginBottom: "15px",
+borderRadius: "10px",
+border: "1px solid #ddd",
+outline: "none",
+fontSize: "14px"
+};
 
-}
-catch(error){
-console.log(error);
-alert("Registration Failed");
-}
-
-}
-
-
-return(
+return (
 <div
 style={{
-height:"100vh",
-display:"flex",
-justifyContent:"center",
-alignItems:"center",
-backgroundImage:
-"url(https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1600)",
-backgroundSize:"cover",
-backgroundPosition:"center"
+minHeight: "100vh",
+background: "linear-gradient(135deg,#141e30,#243b55)",
+display: "flex",
+justifyContent: "center",
+alignItems: "center",
+padding: "20px"
 }}
 >
 
 <div
 style={{
-width:"430px",
-padding:"45px",
-borderRadius:"25px",
-background:"rgba(0,0,0,.75)",
-backdropFilter:"blur(10px)",
-color:"white",
-boxShadow:"0 10px 30px rgba(0,0,0,.5)"
+width: "400px",
+background: "rgba(255,255,255,0.95)",
+backdropFilter: "blur(10px)",
+padding: "35px",
+borderRadius: "18px",
+boxShadow: "0 25px 60px rgba(0,0,0,0.35)"
 }}
 >
 
-<h1 style={{textAlign:"center"}}>
-🎬 CineBook
-</h1>
-
-<h3
-style={{
-textAlign:"center",
-marginBottom:"25px"
-}}
->
-Create Account
-</h3>
-
-<p
-style={{
-textAlign:"center",
-color:"#ccc"
-}}
->
-Join and book movies instantly
+{/* HEADER */}
+<div style={{ textAlign: "center", marginBottom: "25px" }}>
+<h2 style={{ margin: 0 }}>🎬 Register</h2>
+<p style={{ color: "gray", fontSize: "14px" }}>
+Create your account to book movie tickets
 </p>
+</div>
 
+{/* FORM */}
+<form onSubmit={handleRegister}>
 
 <input
 type="text"
+name="name"
+value={user.name}
+onChange={handleChange}
 placeholder="Full Name"
-value={name}
-onChange={(e)=>setName(e.target.value)}
-className="form-control mb-3"
-style={{
-padding:"14px",
-borderRadius:"12px"
-}}
+style={inputStyle}
 />
-
 
 <input
 type="email"
-placeholder="Email"
-value={email}
-onChange={(e)=>setEmail(e.target.value)}
-className="form-control mb-3"
-style={{
-padding:"14px",
-borderRadius:"12px"
-}}
+name="email"
+value={user.email}
+onChange={handleChange}
+placeholder="Email Address"
+style={inputStyle}
 />
-
 
 <input
-type="password"
+type={showPassword ? "text" : "password"}
+name="password"
+value={user.password}
+onChange={handleChange}
 placeholder="Password"
-value={password}
-onChange={(e)=>setPassword(e.target.value)}
-className="form-control mb-3"
-style={{
-padding:"14px",
-borderRadius:"12px"
-}}
+style={inputStyle}
 />
 
+{/* SHOW PASSWORD */}
+<label style={{ fontSize: "14px", color: "#333" }}>
+<input
+type="checkbox"
+onChange={() => setShowPassword(!showPassword)}
+/>{" "}
+Show Password
+</label>
 
+{/* BUTTON */}
 <button
-onClick={register}
-className="btn btn-danger w-100"
+type="submit"
 style={{
-padding:"14px",
-fontSize:"18px",
-borderRadius:"12px"
+width: "100%",
+marginTop: "20px",
+padding: "12px",
+border: "none",
+borderRadius: "10px",
+background: "#d61f26",
+color: "white",
+fontSize: "16px",
+cursor: "pointer"
 }}
 >
-Create Account
+Register
 </button>
 
+</form>
 
-
-<div
-style={{
-textAlign:"center",
-marginTop:"20px"
-}}
->
-Already have account?{" "}
-
+{/* LOGIN LINK */}
+<div style={{ textAlign: "center", marginTop: "20px" }}>
+Already have an account?{" "}
 <Link
 to="/login"
 style={{
-color:"#ff5757",
-textDecoration:"none"
+color: "#d61f26",
+fontWeight: "bold",
+textDecoration: "none"
 }}
 >
-Login Here
+Login
 </Link>
-
-</div>
-
-
-
-<hr style={{margin:"30px 0"}}/>
-
-
-<button className="btn btn-light w-100 mb-2">
-Continue with Google
-</button>
-
-<button className="btn btn-primary w-100 mb-2">
-Continue with Facebook
-</button>
-
-<button className="btn btn-dark w-100">
-Continue with Apple
-</button>
-
-
-<p
-style={{
-textAlign:"center",
-marginTop:"25px",
-color:"#ccc"
-}}
->
-Trusted by movie lovers 🍿
-</p>
-
-
 </div>
 
 </div>
-)
-
+</div>
+);
 }
 
 export default Register;

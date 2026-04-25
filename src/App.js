@@ -4,8 +4,8 @@ import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
 import Home from "./Home";
-import Payment from "./Payment";
 import SeatSelection from "./SeatSelection";
+import Payment from "./Payment";
 
 function App(){
 
@@ -15,15 +15,17 @@ return(
 <Routes>
 
 <Route path="/" element={<Login/>}/>
+<Route path="/login" element={<Login/>}/>
 <Route path="/register" element={<Register/>}/>
 <Route path="/home" element={<Home/>}/>
+<Route path="/seats" element={<SeatSelection />} />
+
 <Route path="/payment" element={<Payment/>}/>
-<Route path="/seats" element={<SeatSelection/>}/>
 
 </Routes>
 
 </BrowserRouter>
-);
+)
 
 }
 
