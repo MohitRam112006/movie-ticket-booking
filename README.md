@@ -68,3 +68,23 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Backend
+
+Currently, this project mainly focuses on frontend functionality and user interaction.
+
+The application uses browser localStorage to manage:
+- User login data
+- Seat booking information
+- Ticket details
+
+No dedicated backend server or database has been integrated yet.
+
+## Future Backend Enhancements
+
+Planned backend improvements include:
+- Node.js + Express.js server
+- MongoDB database
+- REST API integration
+- JWT Authentication
+- Online payment gateway integration
+- Real-time seat availability system
