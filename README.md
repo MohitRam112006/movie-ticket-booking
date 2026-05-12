@@ -1,90 +1,232 @@
-# Getting Started with Create React App
+# 🎟️ Online Movie & Event Ticket Booking System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack web application for booking movie and event tickets online with real-time seat management, user authentication, and responsive frontend UI.
 
-## Available Scripts
+Built using React.js, Node.js, Express.js, MongoDB, and Axios.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+# 📁 Project Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+movie-ticket-booking/
+├── backend/
+│   ├── models/
+│   │   ├── User.js
+│   │   ├── Movie.js
+│   │   └── Booking.js
+│   ├── server.js
+│   ├── package.json
+│   └── node_modules/
+│
+├── frontend/
+│   ├── public/
+│   │   └── index.html
+│   ├── src/
+│   │   ├── pages/
+│   │   │   ├── Movies.js
+│   │   │   └── Book.js
+│   │   ├── App.js
+│   │   ├── index.js
+│   │   └── App.css
+│   ├── package.json
+│   └── node_modules/
+│
+└── README.md
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+# 🛠️ Tech Stack & Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Frontend Technologies
 
-### `npm run build`
+| Technology | Purpose |
+|------------|---------|
+| React.js | Frontend UI |
+| React Router DOM | Routing between pages |
+| Axios | API communication |
+| HTML5 | Structure |
+| CSS3 | Styling |
+| JavaScript ES6 | Frontend logic |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Backend Technologies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| Technology | Purpose |
+|------------|---------|
+| Node.js | Runtime environment |
+| Express.js | Backend framework |
+| MongoDB | Database |
+| Mongoose | MongoDB ODM |
+| CORS | Cross-origin requests |
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# 🚀 Project Features
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 👤 User Features
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- User Registration
+- User Login
+- View Movies & Events
+- Book Tickets
+- Real-Time Seat Availability
+- View Bookings
+- Responsive Design
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 🎬 Movie/Event Features
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Add Movies/Events
+- Display Available Seats
+- Ticket Price Display
+- Seat Count Update After Booking
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 🎟️ Booking Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Ticket Booking System
+- Booking Confirmation
+- Seat Reduction Logic
+- Store Booking Details in Database
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# 📚 Concepts Covered
 
-### Making a Progressive Web App
+## Unit I – Node.js Fundamentals
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+| Feature | Implementation |
+|---------|---------------|
+| npm & package.json | Dependency management |
+| Node.js Runtime | Backend execution |
+| Modules | import/export syntax |
+| Async Programming | async/await |
+| Local Modules | models & routes |
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Unit II – Express.js
 
-### Deployment
+| Feature | Implementation |
+|---------|---------------|
+| Express Server | server.js |
+| REST APIs | GET, POST routes |
+| Middleware | express.json(), cors() |
+| Request & Response | API handling |
+| CRUD Operations | Movies & Bookings |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## Unit III – React.js Frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-## Backend
+| Feature | Implementation |
+|---------|---------------|
+| Components | Movies.js, Book.js |
+| State Management | useState |
+| Side Effects | useEffect |
+| Routing | React Router DOM |
+| API Calls | Axios |
 
-Currently, this project mainly focuses on frontend functionality and user interaction.
+---
 
-The application uses browser localStorage to manage:
-- User login data
-- Seat booking information
-- Ticket details
+## Unit IV – MongoDB & Mongoose
 
-No dedicated backend server or database has been integrated yet.
+| Feature | Implementation |
+|---------|---------------|
+| MongoDB Database | Store users & bookings |
+| Schemas | User, Movie, Booking |
+| CRUD Operations | Create & Read |
+| Mongoose Models | Database interaction |
 
-## Future Backend Enhancements
+---
 
-Planned backend improvements include:
-- Node.js + Express.js server
-- MongoDB database
-- REST API integration
-- JWT Authentication
-- Online payment gateway integration
-- Real-time seat availability system
+# 🌐 API Endpoints
+
+## 👤 Authentication APIs
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | /register | Register User |
+| POST | /login | User Login |
+
+---
+
+## 🎬 Movie APIs
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | /movies | Add Movie/Event |
+| GET | /movies | Get All Movies |
+
+---
+
+## 🎟️ Booking APIs
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | /book | Book Tickets |
+| GET | /bookings | Get All Bookings |
+
+---
+
+# 🗄️ Database Models
+
+## User Model
+
+```js
+{
+  name: String,
+  email: String,
+  password: String
+}
+
+🚀 Setup & Run
+Prerequisites
+Node.js 18+
+MongoDB (local or Atlas)
+1. Install Dependencies
+cd backend
+npm install
+2️⃣ Backend Setup
+cd backendnpm install
+
+3️⃣ Start MongoDB
+Make sure MongoDB is running locally.
+Default MongoDB URL:
+mongodb://127.0.0.1:27017/moviebooking
+
+4️⃣ Start Backend Server
+node server.js
+Backend runs on:
+http://localhost:5000
+
+5️⃣ Frontend Setup
+Open a new terminal:
+cd frontendnpm install
+
+6️⃣ Start Frontend
+npm start
+Frontend runs on:
+http://localhost:3000
+
+🎬 Open Application
+Visit:
+http://localhost:3000
+
+🧪 Test APIs using Thunder Client
+Add Movie
+POST:
+http://localhost:5000/movies
+Body:
+{  "title": "Avengers",  "price": 200,  "seats": 50}
+
+Get Movies
+GET:
+http://localhost:5000/movies
+
+Book Ticket
+POST:
+http://localhost:5000/book
